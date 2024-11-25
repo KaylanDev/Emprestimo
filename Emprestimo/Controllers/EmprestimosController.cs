@@ -1,6 +1,8 @@
 ﻿using Emprestimo.Data;
 using Emprestimo.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System.Text.RegularExpressions;
 
 namespace Emprestimo.Controllers
 {
@@ -35,13 +37,66 @@ namespace Emprestimo.Controllers
             }
             return View();
         }
+
         [HttpGet]
-        public IActionResult Editar()
+        public IActionResult Editar(int? id)
         {
-            return View();
+            if (id == 0 || id == null)
+            {
+                return NotFound();
+            }
+
+            EmprestimosModel emprestimos = _db.Emprestimos.FirstOrDefault(x => x.Id == id);
+
+            if(emprestimos == null)
+            {
+                return NotFound();
+            }
+
+            return View(emprestimos);
+        }
+
+        [HttpPost]
+        public IActionResult Editar(EmprestimosModel emprestimo)
+        {
+            if (ModelState.IsValid)
+            {
+                _db.Emprestimos.Update(emprestimo);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(emprestimo);
         }
 
 
+        [HttpGet]
+        public IActionResult Excluir(int? id)
+        {
+            if (id == 0 || id == null)
+            {
+                return NotFound();
+            }
+            EmprestimosModel emprestimos = _db.Emprestimos.FirstOrDefault(x => x.Id == id);
+
+            if (emprestimos == null)
+            {
+                return NotFound();
+            }
+
+            return View(emprestimos);
+        }
+        [HttpPost]
+        public IActionResult Excluir(EmprestimosModel emprestimo)
+        {
+            if (emprestimo == null)
+            {
+                return NotFound();
+            }
+
+            _db.Emprestimos.Remove(emprestimo);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
 
     }
 }

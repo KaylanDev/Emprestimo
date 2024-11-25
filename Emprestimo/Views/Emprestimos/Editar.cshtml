@@ -6,21 +6,22 @@
     <div class=" text-center">
         <h1 class="  text-opacity-75 ">Edição Emprestimo</h1>
     </div>
-<form method="post" asp-controller="Emprestimos" asp-action="Editar" >
+<form method="post" asp-controller="Emprestimos" asp-action="Editar"  >
+    <input type="hidden" asp-for="Id"/>
     <div class="mb-3">
         <label for="Recebedor" class="form-label  fs-4 ">Recebedor</label>
-        <input type="text" class="form-control bg-dark" asp-for="Recebedor" id="Recebedor" placeholder="Quem é o recebedor?">
+        <input type="text" class="form-control bg-dark text-white " asp-for="Recebedor" id="Recebedor" placeholder="Quem é o recebedor?">
             <span asp-validation-for="Recebedor" class="text-danger"></span>
     </div>
     <div class="mb-3">
             <label for="Fornecedor" class="form-label  fs-4 ">Fornecedor</label>
-        <input type="text" class="form-control bg-dark" asp-for="Fornecedor" id="Fornecedor" placeholder="Quem é o fornecedor?">
+        <input type="text" class="form-control bg-dark text-white"  asp-for="Fornecedor" id="Fornecedor" placeholder="Quem é o fornecedor?">
             <span asp-validation-for="Fornecedor" class="text-danger"></span>
 
     </div>
         <div class="mb-3">
             <label for="Livro" class="form-label  fs-4 ">Livro</label>
-            <input type="text" class="form-control bg-dark" asp-for="LivroEmprestado" id="Livro" placeholder="Qual o Livro?">
+            <input type="text" class="form-control bg-dark text-white" asp-for="LivroEmprestado" id="Livro" placeholder="Qual o Livro?">
             <span asp-validation-for="LivroEmprestado" class="text-danger"></span>
         </div>
     <div class="d-flex gap-5 mt-5">
