@@ -33,8 +33,11 @@ namespace Emprestimo.Controllers
             {
                 _db.Emprestimos.Add(emprestimo);
                 _db.SaveChanges();
+                TempData["MensagemSucesso"] = "Cadastro Realizado com sucesso";
                 return RedirectToAction("Index");
             }
+            TempData["MensagemErro"] = "Algum erro ocorreu ao Cadastrar!";
+
             return View();
         }
 
@@ -63,8 +66,11 @@ namespace Emprestimo.Controllers
             {
                 _db.Emprestimos.Update(emprestimo);
                 _db.SaveChanges();
+                TempData["MensagemSucesso"] = "Edição Realizada com sucesso";
                 return RedirectToAction("Index");
+
             }
+
             return View(emprestimo);
         }
 
@@ -92,7 +98,7 @@ namespace Emprestimo.Controllers
             {
                 return NotFound();
             }
-
+            TempData["MensagemSucesso"] = "Exclusão Realizada com sucesso";
             _db.Emprestimos.Remove(emprestimo);
             _db.SaveChanges();
             return RedirectToAction("Index");

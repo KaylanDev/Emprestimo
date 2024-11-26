@@ -1,20 +1,40 @@
 ﻿@model IEnumerable<EmprestimosModel>
 <div class="container">
     <div class="d-flex justify-content-between align-items-center mb-5">
-        <h1 class=" text-white">Emprestimo</h1>
-        <a asp-controller="Emprestimos" asp-action="Cadastrar" class="btn btn-secondary">
-            cadastrar novo emprestimo
+        <h1 class=" ">Empréstimo</h1>
+        <a asp-controller="Emprestimos" asp-action="Cadastrar" class="btn btn-success">
+            <i class="bi bi-file-earmark-plus mx-2 "></i>cadastrar novo emprestimo
         </a>
     </div>
-    <table class="table table-dark table-hover">
+
+    
+        @if (TempData["Mensagemsucesso"] != null)
+        {
+        <div class="alert alert-success mx-2 text-light" role="alert">
+            @TempData["Mensagemsucesso"]
+        </div>
+
+        }
+    @if (TempData["MensagemErro"] != null)
+    {
+        <div class="alert alert-danger mx-2 text-light" role="alert">
+            @TempData["MensagemErro"]
+        </div>
+
+    }
+
+
+    <table id="Emprestimo" class="table table-dark  table-hover ">
         <thead>
             <tr>
                 <th scope="col">Recebedor</th>
                 <th scope="col">Fornecedor</th>
                 <th scope="col">Data</th>
                 <th></th>
+                <th></th>
+
             </tr>
-            
+
 
         </thead>
         <tbody>
@@ -25,10 +45,11 @@
                     <tr>
                         <td>@emprestimo.Recebedor</td>
                         <td>@emprestimo.Fornecedor</td>
+                        <td>@emprestimo.LivroEmprestado</td>
                         <td>@emprestimo.DataUltimaAtualizacao</td>
                         <td>
-                            <a asp-controller="Emprestimos" asp-action="Editar" asp-route-id="@emprestimo.Id" class="btn btn-warning mx-2">Editar</a>
-                            <a asp-controller="Emprestimos" asp-action="Excluir" asp-route-id="@emprestimo.Id" class="btn btn-danger mx-2">Excluir</a>
+                            <a asp-controller="Emprestimos" asp-action="Editar" asp-route-id="@emprestimo.Id" class="btn btn-warning mx-2"><i class="bi bi-pencil-square mx-2"></i>Editar</a>
+                            <a asp-controller="Emprestimos" asp-action="Excluir" asp-route-id="@emprestimo.Id" class="btn btn-danger mx-2"><i class="bi bi-trash-fill mx-2"></i>Excluir</a>
                         </td>
                     </tr>
                 }

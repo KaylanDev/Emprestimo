@@ -2,32 +2,32 @@
 @{
     ViewData["title"] = "Excluir Emprestimos";
 }
-<div class="container   bg-danger  p-5 rounded-3 text-black mt-4">
+<div class="container   bg-dark  p-5 rounded-3 text-black mt-4">
     <div class=" text-center">
-        <h1 class="  text-opacity-75 ">Excluir Emprestimo</h1>
+        <h1 class=" text-danger fw-bold text-opacity-75 ">Excluir Emprestimo</h1>
     </div>
     <form method="post" asp-controller="Emprestimos" asp-action="Excluir">
         <input type="hidden" asp-for="Id" />
-        <h2> Tem Certeza Que Deseja Excluir?</h2>
+        <h2 class="text-danger"> Tem Certeza Que Deseja Excluir?</h2>
         <div class="mb-3">
-            <label for="Recebedor" class="form-label  fs-4 ">Recebedor</label>
-            <input type="text" class="form-control bg-dark text-white " asp-for="Recebedor" id="Recebedor" placeholder="Quem é o recebedor?" disabled>
+            <label for="Recebedor" class="form-label text-white fs-4 ">Recebedor</label>
+            <input type="text" class="form-control " asp-for="Recebedor" id="Recebedor" placeholder="Quem é o recebedor?" disabled>
             <span asp-validation-for="Recebedor" class="text-danger"></span>
         </div>
         <div class="mb-3">
-            <label for="Fornecedor" class="form-label  fs-4 ">Fornecedor</label>
-            <input type="text" class="form-control bg-dark text-white" asp-for="Fornecedor" id="Fornecedor" placeholder="Quem é o fornecedor?" disabled>
+            <label for="Fornecedor" class="form-label text-white fs-4 ">Fornecedor</label>
+            <input type="text" class="form-control  " asp-for="Fornecedor" id="Fornecedor" placeholder="Quem é o fornecedor?" disabled>
             <span asp-validation-for="Fornecedor" class="text-danger"></span>
 
         </div>
         <div class="mb-3">
-            <label for="Livro" class="form-label  fs-4 ">Livro</label>
-            <input type="text" class="form-control bg-dark text-white" asp-for="LivroEmprestado" id="Livro" placeholder="Qual o Livro?" disabled>
+            <label for="Livro" class="form-label text-white fs-4 ">Livro</label>
+            <input type="text" class="form-control  " asp-for="LivroEmprestado" id="Livro" placeholder="Qual o Livro?" disabled>
             <span asp-validation-for="LivroEmprestado" class="text-danger"></span>
         </div>
         <div class="d-flex gap-5 mt-5">
-            <button type="submit" class="btn btn-secondary  fw-bold mb-3 w-50">Enviar</button>
-            <a asp-controller="Emprestimos" asp-action="Index" class="btn btn-secondary  fw-bold mb-3 w-50">Voltar</a>
+            <button type="submit" class="btn btn-danger  fw-bold mb-3 w-50">Excluir</button>
+            <a asp-controller="Emprestimos" asp-action="Index" class="btn btn-primary  fw-bold mb-3 w-50">Voltar</a>
         </div>
     </form>
 </div>
