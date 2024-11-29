@@ -2,9 +2,16 @@
 <div class="container">
     <div class="d-flex justify-content-between align-items-center mb-5">
         <h1 class=" ">Empréstimo</h1>
-        <a asp-controller="Emprestimos" asp-action="Cadastrar" class="btn btn-success">
-            <i class="bi bi-file-earmark-plus mx-2 "></i>cadastrar novo emprestimo
-        </a>
+        <div>
+            <a asp-controller="Emprestimos" asp-action="Exportar" class="btn btn-success">
+                <i class="bi bi-file-earmark-plus mx-2 "></i>Exportar
+            </a>
+            <a asp-controller="Emprestimos" asp-action="Cadastrar" class="btn btn-success">
+                <i class="bi bi-file-earmark-plus mx-2 "></i>cadastrar novo emprestimo
+            </a>
+          
+
+        </div>
     </div>
 
     
@@ -29,8 +36,8 @@
             <tr>
                 <th scope="col">Recebedor</th>
                 <th scope="col">Fornecedor</th>
-                <th scope="col">Data</th>
-                <th></th>
+                <th scope="col">Livro</th>
+                <th>Data</th>
                 <th></th>
 
             </tr>
